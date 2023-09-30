@@ -790,11 +790,42 @@ p > label.c-label > span.c-custom-toggle__fake-input{
     width: 1.5rem;
     height: 1.5rem;
     position: absolute;
-    top: 50%; /* Vertically center the SVG */
-    right: 0; /* Align the SVG to the right */
-    transform: translate(0, -50%); /* Vertically center the SVG */
+    top: 50%; 
+    right: 0; 
+    transform: translate(0, -50%); 
     margin-right: .75rem; 
     pointer-events: none;
+  }
+
+
+  /* component input password */
+  /* Initially hide the "show" icon */
+  .c-password-toggle__symbol--show {
+    display: none;
+  }
+  
+  /* Show the "show" icon when the checkbox is checked */
+  .c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--show {
+    display: inline-block;
+  }
+  
+  /* Hide the "hide" icon when the checkbox is checked */
+  .c-password-toggle__checkbox:checked + .c-password-toggle__label .c-password-toggle__symbol--hide {
+    display: none;
+  }
+
+  .c-password-toggle-container{
+    position: relative;
+  }
+
+  .c-password-toggle__symbol{
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 50%; 
+    right: 0; 
+    transform: translate(0, -50%); 
+    margin-right: .75rem; 
   }
   
 
