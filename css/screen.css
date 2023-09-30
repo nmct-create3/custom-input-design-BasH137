@@ -77,9 +77,14 @@
     --global-input-borderColor: #E2E3E7;
     --global-input-hover-borderColor: #81ADF0;
     --global-input-focus-borderColor: #3385FF;
+    --global-input-focus-borderColor-rgb: 51,133,255;
     --global-input-symbol: var(--global-input-focus-borderColor);
     --global-chk-background-color: var(--global-input-focus-borderColor);
     --global-chk-checked-border-color: #2E77E6;
+    /* box */
+    /* --global-input-focus-box:0 0 0 2px var(--global-input-focus-borderColor); */
+    --global-input-focus-box: 0 0 0 2px rgba(var(--global-input-focus-borderColor-rgb), 0.2);
+
 }
 
 @media (prefers-color-scheme:dark){
@@ -600,8 +605,9 @@ input::placeholder {
     }
 }
 
-.c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input,.c-option--hidden:active + .c-custom-option .c-custom-option__fake-input {
-    box-shadow: 0 0 0 3px var(--global-input-focus-borderColor);
+.c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input
+,.c-option--hidden:active + .c-custom-option .c-custom-option__fake-input {
+    box-shadow: var(--global-input-focus-box);
 }
 
 .o-hide-accessible .c-label{
@@ -700,6 +706,11 @@ margin-bottom: 1.5rem;
     border-radius: .9375rem;
     margin-right: 1rem;
     background-color: #F5F6FA;
+    transition: background-color var(--global-transitionTiming-alpha-3), border-color var(--global-transitionTiming-alpha-3);
+}
+
+input:focus + label.c-custom-toggle .c-custom-toggle__fake-input{
+    box-shadow: var(--global-input-focus-box);
 }
 
 .c-custom-toggle__fake-input::after{
@@ -716,6 +727,7 @@ margin-bottom: 1.5rem;
     border-radius: 100%;
     transition: all var(--global-transitionTiming-alpha-3);
     transform: translateX(0); 
+    z-index: 2;
 } 
 
 input:checked + label.c-custom-toggle .c-custom-toggle__fake-input,
