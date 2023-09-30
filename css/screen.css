@@ -749,6 +749,36 @@ input:checked + label.c-custom-toggle .c-custom-toggle__fake-input::after{
     display: flex;
     align-items: center;
 }
+.c-custom-toggle--inverted{
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.c-custom-toggle__fake-input{
+    margin-left: auto;
+}
+
+
+p > label.c-label > span.c-custom-toggle__fake-input{
+
+    margin-left: 0;
+}
+
+
+
+/* ---- */
+/* Apply styles to the first .c-custom-toggle-list__item */
+.c-custom-toggle-list__item {
+    margin-bottom: .625rem; /* Add margin to create extra space above the second item */
+}
+
+/* Apply styles to the second .c-custom-toggle-list__item immediately after the first one */
+.c-custom-toggle-list__item + .c-custom-toggle-list__item {
+    border-top: 1px solid #ccc; /* Add a top border to the second item */
+    padding-top: .75rem;
+}
+
+
+/* ------- */
 
 /*
     Component: Label
