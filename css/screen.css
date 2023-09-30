@@ -583,7 +583,7 @@ input::placeholder {
     width: 100%;
 
     border: var(--global-input-borderWidth) solid var(--global-input-borderColor);
-    background-color: var(--global-input-backgroundColor);
+    /* background-color: var(--global-input-backgroundColor); */
     color: var(--global-input-color);
     border-radius: var(--global-borderRadius);
 
@@ -759,7 +759,6 @@ input:checked + label.c-custom-toggle .c-custom-toggle__fake-input::after{
 
 
 p > label.c-label > span.c-custom-toggle__fake-input{
-
     margin-left: 0;
 }
 
@@ -777,6 +776,27 @@ p > label.c-label > span.c-custom-toggle__fake-input{
     padding-top: .75rem;
 }
 
+/* Component select  */
+
+
+   .c-custom-select {
+    position: relative;
+    display: block; 
+  }
+  
+  
+  .c-custom-select__symbol {
+    fill: var(--global-color-neutral-300);
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 50%; /* Vertically center the SVG */
+    right: 0; /* Align the SVG to the right */
+    transform: translate(0, -50%); /* Vertically center the SVG */
+    margin-right: .75rem; 
+    pointer-events: none;
+  }
+  
 
 /* ------- */
 
