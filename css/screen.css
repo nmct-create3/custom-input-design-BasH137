@@ -1536,5 +1536,6 @@ html {
   .c-input, .c-custom-option__fake-input--checkbox{
     background-color: var(--global-color-neutral-950);
     border-color: var(--global-color-neutral-950);
+    color: white;
   }
 }
