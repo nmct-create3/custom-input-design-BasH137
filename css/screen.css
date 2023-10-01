@@ -20,6 +20,8 @@
 
 :root {
   /* colors */
+
+
   --global-color-primary-h: 216deg;
   --global-color-primary-s: 100%;
   --global-color-primary-l: 60%;
@@ -47,6 +49,10 @@
   --global-color-neutral-800: #4b4c60;
   --global-color-neutral-900: #35374d;
   --global-color-neutral-950: #20223a;
+  
+
+  --global-page-color: var(--global-color-neutral-950);
+  --global-page-backgroundColor: var(--global-color-neutral-050);
 
   --global-color-error: #ff3333;
   /* --global-input-error-borderColor:  hsl(var(--global-color-error) / .3); */
@@ -96,12 +102,6 @@
     rgba(var(--global-input-focus-borderColor-rgb), 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --global-input-backgroundColor: var(--global-color-neutral-500);
-    --global-input-hover-borderColor: var(--global-color-neutral-500);
-  }
-}
 
 /*---------------------------------------/*
  # GENERIC
@@ -503,15 +503,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-  fill: var(--global-color-neutral-950);
+  fill: var(--logo__path--1--fill, var(--global-color-neutral-950));
 }
 
 .c-logo__path--2 {
-  fill: var(--global-color-primary-500);
+  fill: var(--logo__path--2--fill, var(--global-color-primary-500));
 }
 
 .c-logo__path--3 {
-  fill: var(--global-color-primary-700);
+  fill: var(--logo__path--3--fill, var(--global-color-alpha-primary-700));
 }
 
 /*
@@ -522,6 +522,7 @@ input::placeholder {
 
 .c-card {
   background-color: White;
+  background-color: var(--card-background, White);
   margin-bottom: var(--global-whitespace);
   border-radius: var(--global-borderRadius);
   box-shadow: 0 0 0 var(--global-borderWidth) rgba(0, 0, 0, 0.05),
@@ -590,7 +591,7 @@ input::placeholder {
   width: 100%;
 
   border: var(--global-input-borderWidth) solid
-    var(--input-borderColor, var(--global-input-borderColor));
+  var(--input-borderColor, var(--global-input-borderColor));
   /* border: var(--global-input-borderWidth) solid var(--global-input-borderColor); */
   /* background-color: var(--global-input-backgroundColor); */
   color: var(--global-input-color);
@@ -725,7 +726,7 @@ input:focus + label.c-custom-toggle .c-custom-toggle__fake-input {
   width: 22px;
   height: 22px;
   background-color: #ffffff;
-  box-shadow: #20223a;
+  box-shadow: var(--global-color-neutral-950);
   box-sizing: content-box;
   border: var(--global-input-borderColor) solid 1px;
   margin-top: -1px;
@@ -1503,5 +1504,37 @@ p > label.c-label > span.c-custom-toggle__fake-input {
 
   .u-6-of-6-bp5 {
     flex-basis: 100% !important;
+  }
+}
+
+html {
+  color: var(--global-page-color); 
+  background-color: var(--global-page-backgroundColor);
+}
+
+/* dark mode  */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+      --global-page-color: White;
+      --global-page-backgroundColor: var(--global-color-neutral-950);
+  }
+  .c-logo {
+    --logo__path--1--fill: White;
+    --logo__path--2--fill: var(--logo__path--1--fill);
+    --logo__path--3--fill: var(--logo__path--1--fill);
+  }
+
+  .c-card{
+    --card-background:var( --global-color-neutral-900);
+  }
+
+  .c-label{
+    --label-color: var(--global-color-neutral-300);
+  }
+
+  .c-input, .c-custom-option__fake-input--checkbox{
+    background-color: var(--global-color-neutral-950);
+    border-color: var(--global-color-neutral-950);
   }
 }
